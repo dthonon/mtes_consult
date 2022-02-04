@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "mtes_consult"
 version = "0.1.0"
-description = ""
+description = "Download and analyze MTE public consultations"
 authors = ["Daniel Thonon <d.thonon9@gmail.com>"]
 
 [tool.poetry.dependencies]
@@ -10,6 +10,7 @@ Scrapy = "^2.5.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+black = "^22.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
