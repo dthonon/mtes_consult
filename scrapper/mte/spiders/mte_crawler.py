@@ -6,13 +6,14 @@ import scrapy
 class MteCrawlerSpider(scrapy.Spider):
     name = "mte_crawler"
     allowed_domains = ["developpement-durable.gouv.fr"]
+    ## Modifier le nom de la consultation ci-dessous
     start_urls = [
         "http://www.consultations-publiques.developpement-durable.gouv.fr/"
         + "projet-de-decret-pris-en-application-de-l-article-a2569.html"
     ]
 
+    _max_pages = 0  # Pour limiter le nombre de pages, si nécessaire
     _page = 0
-    _max_pages = 0
     _p_com = re.compile(r" (\d*) commentaires")
 
     def parse(self, response):
