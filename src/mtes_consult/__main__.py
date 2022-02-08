@@ -8,8 +8,9 @@ import sys
 import os
 
 from . import _, __version__
+from .preprocess import preprocess
 
-_logger = logging.getLogger(__name__)
+_logger = logging.getLogger()
 
 
 class readable_dir(argparse.Action):
@@ -54,7 +55,7 @@ def arguments(args):
         "--quiet", help=_("Traces moins verbeuses (WARNING)"), action="store_true"
     )
     parser.add_argument(
-        "--data-directory",
+        "--data_directory",
         help=_("Répertoire contenant les répertoires de données raw, preprocessed..."),
         required=True,
         action=readable_dir,
@@ -110,8 +111,7 @@ def main(args):
 
     # Preprocess csv file
     if args.preprocess:
-        _logger.info(_("Pré-traitement du fichier CSV brut : %s"), args.consultation)
-        return None
+        preprocess(args.consultation, args.data_directory)
 
     _logger.info(_("Fin du traitement"))
     return None
