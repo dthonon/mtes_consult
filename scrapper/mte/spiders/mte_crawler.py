@@ -5,9 +5,11 @@ import scrapy
 
 class MteCrawlerSpider(scrapy.Spider):
     name = "mte_crawler"
-    # custom_settings = {
-    #     'DOWNLOAD_DELAY': '1',
-    # }
+    allowed_domains = ["consultations-publiques.developpement-durable.gouv.fr"]
+    custom_settings = {
+        "CONCURRENT_REQUESTS_PER_DOMAIN": '1',
+        "DOWNLOAD_DELAY": '5',
+    }
 
     # ## Modifier le nom de la consultation ci-dessous
     _start_url = "http://www.consultations-publiques.developpement-durable.gouv.fr/projet-de-decret-pris-en-application-de-l-article-a2569.html"
